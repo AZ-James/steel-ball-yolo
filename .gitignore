@@ -1,0 +1,12 @@
+# 训练图片（体积大，不入库）
+data/images/
+
+# 缓存文件
+*.cache
+
+# 训练结果 + 模型权重
+runs/
+
+# Python
+__pycache__/
+*.pyc
