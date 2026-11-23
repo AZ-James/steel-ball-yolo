@@ -101,7 +101,7 @@ D:\个人的数据\PyCharm\电赛\.venv\Scripts\python.exe scripts/annotate.py
 操作：鼠标拖拽画框 | 空格下一张 | A上一张 | Delete清框 | Z撤销 | ESC保存退出
 
 ### OpenCV 中文路径问题
-OpenCV 的 `imread` 不支持中文路径，统一使用 `np.fromfile + cv2.imdecode` 替代。
+OpenCV 的 `imread` 不支持中文路径，否则会出现报错，统一使用 `np.fromfile + cv2.imdecode` 替代。
 
 ## 完整流程回顾
 
