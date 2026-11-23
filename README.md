@@ -8,9 +8,9 @@ steel_ball/
 ├── README.md
 ├── data/
 │   ├── classes.txt           # 类别名
-│   ├── images/
-│   │   ├── train/            # 104 张训练图 (灰度)
-│   │   └── val/              # 26 张验证图 (灰度)
+│   ├── images/               # ⚠ 未入库 (见下方说明)
+│   │   ├── train/            # 104 张训练图 (灰度, 未入库)
+│   │   └── val/              # 26 张验证图 (灰度, 未入库)
 │   └── labels/
 │       ├── train/            # 104 个标注文件
 │       └── val/              # 26 个标注文件
@@ -23,10 +23,22 @@ steel_ball/
 │   └── split_data.py         # 划分数据集
 ├── runs/
 │   └── steel_ball/weights/
-│       ├── best.pt           # ⭐ 最佳模型 (mAP50=0.995)
-│       └── last.pt           # 最后一轮模型
+│       ├── best.pt           # ⭐ 最佳模型 (mAP50=0.995, 未入库)
+│       └── last.pt           # 最后一轮模型 (未入库)
 └── steel_ball.yaml
 ```
+
+> **⚠ 图像与权重未入库**
+>
+> `.gitignore` 排除了 `data/images/`（130 张灰度原图）和 `runs/`（训练输出 + 权重），
+> 所以本仓库只包含 **标注文件 + 脚本 + 配置**，体积很小。
+> 直接 clone 下来**无法**立即训练或检测，需要自备/自采：
+>
+> - **图片**：用 `scripts/collect_data.py` 采集，或自采后按 `data/labels/` 的文件名放进
+>   `data/images/train/` 与 `data/images/val/`（图与标签同名、一一对应）
+> - **模型权重**：自备 `best.pt` 放到 `runs/steel_ball/weights/`，或先跑 `scripts/train.py` 自己训一个
+>
+> 标注格式为标准 YOLO（`class cx cy w h`，归一化），可直接用于 Ultralytics。
 
 ## 训练结果
 
